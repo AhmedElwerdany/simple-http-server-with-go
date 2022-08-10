@@ -78,15 +78,18 @@ func main() {
 		// filtering the todos based on the "id"
 		for index, todo := range todos {
 				if fmt.Sprint(todo.Id) == id {
+					
 					// this could've been done better
-
 					todo.Status = request.Status
 					todo.Title = request.Title
+					
 					todos[index] = todo
+					
 					c.JSON(http.StatusOK, gin.H{
 						"data" : todo,
 						"message": "todo updated succesfuly",
 					})
+					
 					return
 				}
 		}
